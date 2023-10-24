@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.login__main {
+    display: grid;
+    justify-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.081);
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.242);
+    padding: 9.5vh 15vh;
+    background: #acd4f7;
+    border-radius: 1vh;
+}
+.login__user, .login__password {
+    display: grid;
+}
+.user_login {
+    display: flex;
+    justify-content: center;
+}
+/* Diseño de los elementos */
+body {
+    background: url("../img/veterinary_fund.svg") no-repeat center;
+    background-size: 120%;
+}
+
+h1 {
+    font-size: 2.5vw;
+    padding-bottom: 5vh;
+}
+label {
+    font-size: 0.9vw;
+    color: black;
+    padding-bottom: 3vh;
+}
+label input {
+    height: 2vw;
+    width: 15vw;
+    border: none;
+    border-radius: 1vh;
+    margin-top: 1vh;
+}
+label input[type="text"] {
+    border: none;
+    text-align: center;
+    outline: none;
+}
+.user_login input{
+    height: 2.5vw;
+    width: 7vw;
+    border: none;
+    border-radius: 0.7vw;
+    cursor: pointer;
+}
+.login__footer {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    margin-top: 2.5vh;
+}
+.login__footer a {
+    font-size: 0.8vw;
+    text-decoration: none;
+    color: black;
+}
+.login-button::before {
+    color: #acd4f7;
+}

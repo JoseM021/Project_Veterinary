@@ -16,5 +16,6 @@
     echo $_ENV["USER"];
     ?>
     <h2>Hola mundo cruel</h2>
+    <a href="login.php">login</a>
 </body>
 </html>
