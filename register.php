@@ -6,11 +6,24 @@
     <link rel="stylesheet" href="css/register.css">
     <title>Register</title>
 </head>
+<?php
+require_once(__DIR__ ."/controller/user.controller.php");
+
+if (isset($_POST["userregister"])) {
+    $user = new User();
+    $user->nombre = $_POST["username"];
+    $user->email = $_POST["email"];
+    $user->password = $_POST["password"];
+
+    $userController = new User_Controller();
+    $userController->create($user);
+}
+?>
 <body>
     <main>
         <section class="login__main">
             <h1>Bienvenido</h1>
-            <form action="login.php" method="POST">
+            <form action="register.php" method="POST">
             <label for="data_user" class="login__user">
                     Email:
                     <input type="text" id="data_email" name="email" maxlength="18">
