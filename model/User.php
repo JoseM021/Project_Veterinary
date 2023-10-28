@@ -7,6 +7,6 @@ class User {
     public string $email;
     public string $password;
     public int $Role_id;
-    public $foto;
+    public string $foto;
 }
 ?>

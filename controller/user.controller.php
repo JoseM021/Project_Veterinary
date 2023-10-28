@@ -5,31 +5,15 @@ require_once(__DIR__ ."/../model/User.php");
 class User_controller extends Conexion {
     public function create (User $user) {
 
-        $mysqli = $this->connect();
-        $nombre = $mysqli-> real_escape_string($user->nombre);
-        $email = $mysqli->real_escape_string($user->email);
-        $password = $mysqli->real_escape_string($user->password);
-        $sql = "INSERT INTO User (id, nombre, email, password, Role_id) VALUES ('$id','$nombre', '$email', '$password', '$role_id')";
+        $connection = $this->connect();
+        $sql = "INSERT INTO User (username, email, password, Role_id) 
+        VALUES ('{$user->username}', '{$user->email}', '{$user->password}', '{$user->Role_id}')";
 
-        if (isset($user->id)) {
-            $id = $mysqli->real_escape_string($user->id);
-        } else {
-            $id = null;
-        }
+        echo "Consulta SQL: $sql";
         
-        if (isset($user->Role_id)) {
-            $role_id = $mysqli->real_escape_string($user->Role_id);
-        } else {
-            $role_id = null;
-        }
+        $result = $connection->query($sql);
 
-        if ($mysqli->query(query:$sql)) {
-        echo "Registro creado con éxito";
-        } else {
-        echo "Error al crear el registro: " . $mysqli->error;
-        }
-    
-        $mysqli->close();
+        return $result;
     }
 }
 

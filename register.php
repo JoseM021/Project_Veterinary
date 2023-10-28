@@ -7,16 +7,16 @@
     <title>Register</title>
 </head>
 <?php
+
+require_once(__DIR__ ."/vendor/autoload.php");
+use Dotenv\Dotenv;
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+
 require_once(__DIR__ ."/controller/user.controller.php");
-
 if (isset($_POST["userregister"])) {
-    $user = new User();
-    $user->nombre = $_POST["username"];
-    $user->email = $_POST["email"];
-    $user->password = $_POST["password"];
-
-    $userController = new User_Controller();
-    $userController->create($user);
+    require_once(__DIR__ ."/process/create_user.php");
 }
 ?>
 <body>
@@ -51,5 +51,6 @@ if (isset($_POST["userregister"])) {
             </article>
         </section>
     </main>
+
 </body>
 </html>
