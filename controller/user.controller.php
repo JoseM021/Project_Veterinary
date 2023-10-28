@@ -8,8 +8,6 @@ class User_controller extends Conexion {
         $connection = $this->connect();
         $sql = "INSERT INTO User (username, email, password, Role_id) 
         VALUES ('{$user->username}', '{$user->email}', '{$user->password}', '{$user->Role_id}')";
-
-        echo "Consulta SQL: $sql";
         
         $result = $connection->query($sql);
 
