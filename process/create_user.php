@@ -8,10 +8,10 @@ if (!isset($_SESSION["error_message_form"]) && !isset($_SESSION["error_message_d
         $userController = new User_Controller();
         $user = new User();
 
-        
         $password = $_POST["password"];
         $cryptPassword = password_hash($password, PASSWORD_ARGON2I);
         $truncatedCrypt = substr($cryptPassword,0,40);
+        
         $user->password = $truncatedCrypt;
         $user->username = $_POST["username"];
         $user->email = $_POST["email"];
@@ -38,7 +38,6 @@ if (!isset($_SESSION["error_message_form"]) && !isset($_SESSION["error_message_d
             }
         }
         $connection->close();
-        
     } 
    }
 ?>

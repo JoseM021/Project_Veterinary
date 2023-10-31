@@ -39,7 +39,7 @@ if (isset($_POST["userregister"])) {
                 </label>
                 <label for="data_password" class="login__password">
                     Contraseña:
-                    <input type="text" id="data_password" name="password" value="<?php echo $_POST["password"] ?? "" ?>" maxlength="18">
+                    <input type="text" id="data_password" name="password" value="<?php echo $_POST["password"] ?? "" ?>" maxlength="20">
                 </label>
                 <div class="user_login">
                     <input type="submit" name="userregister" value="Registrate" class="login-button">

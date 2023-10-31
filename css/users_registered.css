@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.table__users {
+    background-color: #acd4f7;
+    padding: 1vh 1vh 1vh 0vh;
+    border: 1px solid rgb(42, 42, 44);
+}
+.main__users {
+    display: grid;
+    justify-content: center;
+}
+.users__tittle {
+    display: flex;
+    justify-content: center;
+}
+tr th {
+    padding: 0vh 4vh 2vh 0vh;
+}
+th {
+    font-size: 2.6vh;
+    text-align: left;
+}
+.rowscontent__users th {
+    font-weight: lighter;
+}
+.rowscontent__header th {
+    align-items: center;
+}
+.roleID__users {
+    text-align: center;
+}
+.button__edit {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+}
+.button__edit a, .button__delete a {
+    text-decoration: none;
+    color: rgb(248, 51, 51);
+}

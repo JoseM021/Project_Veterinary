@@ -1,3 +1,2 @@
 ErrorDocument 404 http://localhost/Project_Veterinary/error404.php
 ErrorDocument 403 http://localhost/Project_Veterinary/error403.php
-

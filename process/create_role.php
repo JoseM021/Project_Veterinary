@@ -1,5 +1,4 @@
 <?php
-
 require_once(__DIR__ ."/../conexion.php");
 
 class Role_controller extends Conexion {

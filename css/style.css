@@ -1,0 +1,115 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    height: 8vh;
+    padding: 0 1vh;
+}
+header h3, header a, header label {
+    color: white;
+    font-weight: lighter;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.main__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main__buttons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10vh;
+}
+.right__buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.right__buttons a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10vh;
+}
+.menu-toggle {
+    display: none;
+}
+
+.rightMore__button {
+    display: none;
+}
+.main__buttons a:hover, .right__buttons a:hover {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(107, 51, 229);
+    width: 15vh;
+    text-align: center;
+    align-items: center;
+    color: black;
+    font-weight: bolder;
+    padding: 2.5vh;
+    transition: 0.4s;
+}
+
+@media (max-width: 670px) {
+    .right__buttons {
+        display: none;
+        background-color: rgb(0, 0, 0);
+        width: 28vh;
+    }
+    .right__buttons a {
+        padding: 2.5vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .rightMore__button {
+        display: block;
+    }
+    .menu-toggle:checked ~ .right__buttons {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        top: 7.7vh;
+    }
+    .right__buttons a:hover {
+        background-color: rgb(107, 51, 229);
+        width: 100%;
+        text-align: center;
+        color: black;
+        font-weight: bolder;
+        transition: 0.4s;
+    }
+    .rightContainerMain__buttons label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 10vh;
+    }
+    .rightContainerMain__buttons label:hover {
+        display: flex;
+        justify-content: center;
+        background-color: rgb(107, 51, 229);
+        width: 15vh;
+        text-align: center;
+        align-items: center;
+        color: black;
+        font-weight: bolder;
+        padding: 2.5vh;
+        transition: 0.4s;
+    }
+}
