@@ -2,5 +2,10 @@
     "require": {
         "vlucas/phpdotenv": "^5.5",
         "jeroennoten/laravel-adminlte": "*"
+    },
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
     }
 }
