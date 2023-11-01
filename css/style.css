@@ -11,6 +11,8 @@ header {
     background-color: black;
     height: 8vh;
     padding: 0 1vh;
+    position: absolute;
+    z-index: 1;
 }
 header h3, header a, header label {
     color: white;

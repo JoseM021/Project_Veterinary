@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/preloaderIndex.css">
     <title>Veterinaria</title>
 </head>
 <body>
@@ -32,5 +33,11 @@
             </div>
         </div>
     </header>
+
+    <div class="welcome__message">
+        <div class="welcome__icon">
+            <img src="img/Logo_Veterinary.png" alt="welcome-icon">
+        </div>
+    </div>
 </body>
 </html>
