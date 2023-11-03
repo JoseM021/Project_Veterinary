@@ -39,5 +39,6 @@
             <img src="img/Logo_Veterinary.png" alt="welcome-icon">
         </div>
     </div>
+    <script src="/javascript/loaderIndex.js"></script>
 </body>
 </html>
