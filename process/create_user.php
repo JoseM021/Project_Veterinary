@@ -9,10 +9,8 @@ if (!isset($_SESSION["error_message_form"]) && !isset($_SESSION["error_message_d
         $user = new User();
 
         $password = $_POST["password"];
-        $cryptPassword = password_hash($password, PASSWORD_ARGON2I);
-        $truncatedCrypt = substr($cryptPassword,0,40);
-        
-        $user->password = $truncatedCrypt;
+        $cryptPassword = password_hash($password, PASSWORD_BCRYPT);
+        $user->password = $cryptPassword;
         $user->username = $_POST["username"];
         $user->email = $_POST["email"];
         $user->Role_id=2;

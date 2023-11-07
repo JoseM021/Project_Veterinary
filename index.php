@@ -36,7 +36,7 @@
 
     <div class="welcome__message">
         <div class="welcome__icon">
-            <img src="img/Logo_Veterinary.png" alt="welcome-icon">
+            <img src="img/Logo_Veterinary_Main.png" alt="welcome-icon">
         </div>
     </div>
     <script src="/javascript/loaderIndex.js"></script>

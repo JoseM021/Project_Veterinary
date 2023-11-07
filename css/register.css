@@ -53,6 +53,11 @@ label input[type="text"] {
     text-align: center;
     outline: none;
 }
+label input[type="password"] {
+    border: none;
+    text-align: center;
+    outline: none;
+}
 .user_login input{
     height: 2.5vw;
     width: 7vw;
