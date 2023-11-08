@@ -3,9 +3,9 @@ require_once(__DIR__ ."/../controller/user.controller.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST["id"];
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-    $email = $_POST["email"];
+    $username = isset($_POST["username"]) ? $_POST["username"] : "";
+    $password = isset($_POST["password"]) ? $_POST["password"] : "";
+    $email = isset($_POST["email"]) ? $_POST["email"] : "";
 
     $userController = new User_Controller();
     $user = new User();
