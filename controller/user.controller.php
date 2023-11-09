@@ -15,29 +15,15 @@ class User_controller extends Conexion {
     }
     public function update(User $usuario) {
         $conexión = $this->connect();
-        $actualizaciones = [];
-    
-        if ($usuario->username !== null) {
-            $actualizaciones[] = "username='{$usuario->username}'";
-        }
-    
-        if ($usuario->email !== null) {
-            $actualizaciones[] = "email='{$usuario->email}'";
-        }
-    
-        if ($usuario->password !== null) {
-            $actualizaciones[] = "password='{$usuario->password}'";
-        }
-    
-        if (!empty($actualizaciones)) {
-            $sql = "UPDATE User SET " . implode(', ', $actualizaciones) . " WHERE id='{$usuario->id}'";
-            $resultado = $conexión->query($sql);
-    
-            if ($resultado) {
-                header('Location: ../users_registered.php');
-            } else {
-                echo "Error al actualizar al usuario";
-            }
+        $sql = "UPDATE User SET username = '{$usuario->username}', email = '{$usuario->email}', password = '{$usuario->password}'
+        WHERE id = '{$usuario->id}';";
+
+        $resultado = $conexión->query($sql);
+
+        if ($resultado) {
+            return true;
+        } else {
+            return false;
         }
     }
     

@@ -15,63 +15,41 @@ $mysqli = $con->connect();
 $query = $mysqli->query("SELECT * FROM User");
 ?>
 <body>
-    <section class="main__users">
-        <div class="users__tittle">
-            <h2>Usuarios Registrados</h2>
-        </div>
-        <table class="table__users">
-            <thead>
-                <tr class="rowscontent__header">
-                    <th>ID</th>
-                    <th>username</th>
-                    <th>email</th>
-                    <th>password</th>
-                    <th>role_id</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php while ($row = $query->fetch_assoc()): ?>
-                    <tr class="rowscontent__users">
-                    <th><?= $row['id'] ?></th>
+<section class="main__users">
+    <div class="users__tittle">
+        <h2>Usuarios Registrados</h2>
+    </div>
+    <table class="table__users">
+        <thead>
+            <tr class="rowscontent__header">
+                <th>ID</th>
+                <th>username</th>
+                <th>email</th>
+                <th>password</th>
+                <th>role_id</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php while ($row = $query->fetch_assoc()): ?>
+                <tr class="rowscontent__users">
+                    <form action="./process/update_user.php" method="post" id="editForm<?= $row['id'] ?>">
+                        <th><?= $row['id'] ?><input type="hidden" name="id" value="<?= $row['id'] ?>"></th>
+                        <th><input type="text" name="username" value="<?= $row['username'] ?>"></th>
+                        <th><input type="text" name="email" value="<?= $row['email'] ?>"></th>
+                        <th><input type="text" name="password" value="<?= $row['password'] ?>"></th>
+                        <th><input type="text" readonly="readonly" name="role_id" value="<?= $row['Role_id'] ?>"></th>
+                        <th><input type="submit" value="Actualizar"></th>
+                    </form>
                     <th>
-                        <?= $row['username'] ?>
-                        <form action="./process/update_user.php" method="post" id="editForm<?= $row['id'] ?>">
-                        <input type="hidden" name="id" value="<?= $row['id'] ?>">
-                        <input type="text" name="username" value="<?= $row['username'] ?>">
-                        <input type="submit" value="Actualizar">
-                        </form>
-                    </th>
-                    <th>
-                        <?= $row['email'] ?>
-                        <form action="./process/update_user.php" method="post" id="editFormEmail<?= $row['id'] ?>">
-                        <input type="hidden" name="id" value="<?= $row['id'] ?>">
-                        <input type="text" name="email" value="<?= $row['email'] ?>">
-                        <input type="submit" value="Actualizar">
-                        </form>
-                    </th>
-                    <th>
-                        <?= $row['password'] ?>
-                        <form action="./process/update_user.php" method="post" id="editFormPassword<?= $row['id'] ?>">
-                        <input type="hidden" name="id" value="<?= $row['id'] ?>">
-                        <input type="text" name="password" value="<?= $row['password'] ?>">
-                        <input type="submit" value="Actualizar">
-                        </form>
-                    </th>
-                    <th class="roleID__users"><?= $row['Role_id'] ?></th>
-                    <th class="button__edit">
-                        <button onclick="editUser(<?= $row['id'] ?>)">Editar</button>
-                    </th>
-                    <th class="button__delete">
                         <form action="./process/delete_user.php" method="post">
-                        <input type="hidden" name="id" value="<?= $row['id']?>">
-                        <input type="submit" value="Eliminar">
+                            <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                            <input type="submit" value="Eliminar">
                         </form>
                     </th>
-                    </tr>
-                <?php endwhile;?>
-            </tbody>
-
-        </table>
-    </section>
+                </tr>
+            <?php endwhile;?>
+        </tbody>
+    </table>
+</section>
 </body>
 </html>

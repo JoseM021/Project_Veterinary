@@ -7,11 +7,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = isset($_POST["password"]) ? $_POST["password"] : "";
     $email = isset($_POST["email"]) ? $_POST["email"] : "";
 
+    $cryptPassword = password_hash($password, PASSWORD_BCRYPT);
+
     $userController = new User_Controller();
     $user = new User();
     $user->id = $id;
     $user->username = $username;
-    $user->password = $password;
+    $user->password = $cryptPassword;
     $user->email = $email;
 
     $result = $userController->update($user);
