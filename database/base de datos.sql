@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`User` (
   `nombre` VARCHAR(45) NULL,
   `username` VARCHAR(45) NULL,
   `email` VARCHAR(45) NULL,
-  `password` VARCHAR(240) NULL,
+  `password` VARCHAR(400) NULL,
   `Role_id` INT NOT NULL,
   `foto` BLOB NULL,
   PRIMARY KEY (`id`),
@@ -143,7 +143,9 @@ CREATE TABLE IF NOT EXISTS `mydb`.`ControlVacuna` (
 ENGINE = InnoDB;
 
 ALTER TABLE User MODIFY COLUMN id INT auto_increment;
-
+ALTER TABLE User MODIFY password VARCHAR(400) NULL;
+ALTER TABLE Vacuna MODIFY COLUMN id INT auto_increment;
+ALTER TABLE Vacuna ADD UNIQUE (nombre);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

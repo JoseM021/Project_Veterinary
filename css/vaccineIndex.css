@@ -71,7 +71,13 @@ label input[type="password"] {
     outline: none;
     color: #805ff8;
 }
-.user_login input{
+.buttons__down {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+}
+.user_login input, .user_vaccines input{
     font-weight: bolder;
     font-size: 0.8vw;
     height: 2.5vw;

@@ -2,12 +2,11 @@
 session_start();
 if (!isset($_SESSION["error_message_form"]) && !isset($_SESSION["error_message_duplicate"]) && !empty($_POST["userregister"])) {
     if (empty($_POST["username"]) or empty($_POST["password"]) or empty($_POST["email"])) {
-        $_SESSION["error_message_form"] = "Todos los campos son obligatorios";
+        $_SESSION["error_message_form"] = "<div>Todos los campos son obligatorios</div>";
     }
     else {
         $userController = new User_Controller();
         $user = new User();
-
         $password = $_POST["password"];
         $cryptPassword = password_hash($password, PASSWORD_BCRYPT);
         $user->password = $cryptPassword;

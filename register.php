@@ -30,15 +30,15 @@ if (isset($_POST["userregister"])) {
             <h1>Bienvenido</h1>
             <form action="register.php" method="POST">
             <label for="data_user" class="login__user">
-                    Email:
+                    <p>Email:</p>
                     <input type="text" id="data_email" name="email" value="<?php echo $_POST["email"] ?? "" ?>" maxlength="24">
                 </label>
                 <label for="data_user" class="login__user">
-                    Usuario:
+                    <p>Usuario:</p>
                     <input type="text" id="data_user" name="username" value="<?php echo $_POST["username"] ?? "" ?>" maxlength="16">
                 </label>
                 <label for="data_password" class="login__password">
-                    Contraseña:
+                    <p>Contraseña:</p>
                     <input type="password" id="data_password" name="password" value="<?php echo $_POST["password"] ?? "" ?>" maxlength="20">
                 </label>
                 <div class="user_login">
@@ -57,9 +57,9 @@ if (isset($_POST["userregister"])) {
             ?>
             <article class="login__footer">
                 <div class="login__redirectionR">
-                    <a href="">
-                        ¿No tienes una cuenta?<br>
-                        Registrate aquí
+                    <a href="login.php">
+                        ¿Ya tienes una cuenta?<br>
+                        Ingresa Aquí
                     </a>
                 </div>
             </article>

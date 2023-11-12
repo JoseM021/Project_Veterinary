@@ -3,14 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 .welcome__message {
     width: 100%;
     height: 100%;
     background: rgb(88, 23, 179);
     background: linear-gradient(90deg, rgb(98, 93, 203) 0%, rgb(137, 78, 197) 0%, rgb(114, 84, 192) 35%, rgb(201, 75, 109) 100%);
-    background-size: 300% 100%; 
-    animation: gradient 6.5s ease infinite;
+    background-size: 300% 100%;
+    background-clip: border-box; 
+    animation: gradient 6.5s ease;
     position: absolute;
     z-index: 3;
 }
@@ -31,7 +31,7 @@
 }
 .welcome__message.loaded {
     animation: none;
-    display: none;
+    animation-play-state: paused;
 }
 
 /* ----------------KEYFRAMES---------------- */
