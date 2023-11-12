@@ -1,0 +1,25 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.main__vaccines {
+    display: grid;
+    justify-content: center;
+}
+.rowsHeaderVaccines {
+    background: #7a5de1;
+}
+.rowsHeaderVaccines th {
+    background-color: #7a5de1;
+    padding: 1.6vw;
+}
+.rowscontent__vaccines th {
+    padding: 10px;
+    background-color: #d0d0d0;
+    font-weight: lighter;
+}
+.rowscontent__vaccines a {
+    text-decoration: none;
+}

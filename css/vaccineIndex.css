@@ -72,12 +72,16 @@ label input[type="password"] {
     color: #805ff8;
 }
 .buttons__down {
-    display: grid;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    gap: 1vw;
+    align-items: center;
+    gap: 0.5vw;
 }
-.user_login input, .user_vaccines input{
+.user_login input, .user_vaccines {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-weight: bolder;
     font-size: 0.8vw;
     height: 2.5vw;
@@ -87,17 +91,25 @@ label input[type="password"] {
     cursor: pointer;
     background-color: #7a5de1;
 }
-.login__footer {
-    display: grid;
-    justify-content: center;
-    text-align: center;
-    margin-top: 2.5vh;
-}
-.login__footer a {
-    font-size: 0.8vw;
+.user_login a, .user_vaccines a {
     text-decoration: none;
-    color: #7a5de1;
+    text-align: center;
+    color: black;
 }
 .login-button::before {
     color: #acd4f7;
+}
+.errorDuplicateRegister {
+    color: #6d5ab4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1vw;
+}
+.errorDuplicateRegistered {
+    color: #6d5ab4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1vw;
 }

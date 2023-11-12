@@ -1,5 +1,6 @@
 <?php
-
+require_once(__DIR__ ."/../conexion.php");
+require_once(__DIR__ ."/../model/Vacuna.php");
 class VaccineController extends Conexion {
     public function create(Vacuna $vacuna) {
         $connection = $this->connect();

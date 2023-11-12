@@ -20,13 +20,13 @@
                         <input type="submit" name="uservaccine" value="Enviar a BD" class="login-button">
                     </div>
                     <div class="user_vaccines">
-                        <input type="submit" name="submitvaccine" value="Ver Vacunas" class="login-button">
+                        <a name="submitvaccine" href="vaccineRegistered.php">Ver Vacunas</a>
                     </div>
                 </div>
-                <?php
-                require_once(__DIR__ . "../../process/create_vaccine.php");
-                ?>
             </form>
+            <?php
+                require_once(__DIR__ . "../../process/create_vaccine.php");
+            ?>
         </section>
     </main>
 </body>

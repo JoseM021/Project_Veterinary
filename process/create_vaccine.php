@@ -19,9 +19,12 @@ if (isset($_POST["uservaccine"])) {
         $resultado = $connection->query($query);
 
         if ($resultado->num_rows > 0) {
-            echo "<div>El nombre de la vacuna ya existe</div>";
+            $messageDuplicateVaccineRegister = "Vacuna ya existente";
+            echo "<div class=\"errorDuplicateRegister\">{$messageDuplicateVaccineRegister}</div>";
         } else {
             $vacunaController->create($vacuna);
+            $messageDuplicateVaccineRegistered = "Vacuna registrada";
+            echo "<div class=\"errorDuplicateRegistered\">{$messageDuplicateVaccineRegistered}</div>";
             header("Location: vaccineIndex.php");
         }
     }

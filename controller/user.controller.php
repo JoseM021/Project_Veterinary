@@ -14,11 +14,11 @@ class User_controller extends Conexion {
         return $result;
     }
     public function update(User $usuario) {
-        $conexión = $this->connect();
+        $connection = $this->connect();
         $sql = "UPDATE User SET username = '{$usuario->username}', email = '{$usuario->email}', password = '{$usuario->password}'
         WHERE id = '{$usuario->id}';";
 
-        $resultado = $conexión->query($sql);
+        $resultado = $connection->query($sql);
 
         if ($resultado) {
             return true;
