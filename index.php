@@ -19,11 +19,6 @@
         <div class="header__logo">
             <h3>Logo</h3>
         </div>
-        <div class="main__buttons">
-            <a href="">Services</a>
-            <a href="">About</a>
-            <a href="">Contact</a>
-        </div>
         <div class="rightContainerMain__buttons">
             <input type="checkbox" id="menu-toggle" class="menu-toggle">
             <label for="menu-toggle" class="rightMore__button">More</label>
@@ -33,6 +28,25 @@
             </div>
         </div>
     </header>
+    <body>
+        <main class="centralContainer">
+            <div class="containerUser">
+                <div class="userInformation-left">
+                    <div><img src="../Project_Veterinary/img/icon-user-default.png" alt="user-icon"></div>
+                    <p class="userName" name="UserName">Username</p>
+                </div>
+                <div class="userInformation-center">
+                    <p class="petsCount">Cantidad Mascotas:</p>
+                </div>
+            </div>
+            <div class="containerMain">
+                
+            </div>
+            <div class="containerFooter">
+
+            </div>
+        </main>
+    </body>
 
     <div class="welcome__message">
         <div class="welcome__icon">
