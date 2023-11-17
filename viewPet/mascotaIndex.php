@@ -10,14 +10,14 @@
     <main>
         <section class="login__main">
             <h1>Registrar Mascota</h1>
-            <form action="mascotaIndex.php" method="POST">
+            <form action="../process/create_mascota.php" method="POST">
                 <label for="data_user" class="login__user">
                     Nombre Mascota:
                     <input type="text" id="data_mascota" name="nombre" value="" maxlength="20">
                 </label>
                 <label for="data_tipo" class="login__user">
                     Tipo de Mascota:
-                    <select name="tipo_mascota" id="data_tipo">
+                    <select name="TipoMascota_id" id="data_tipo">
                         <option value="1">Perro</option>
                         <option value="2">Gato</option>
                     </select>
@@ -28,7 +28,7 @@
                 </label>
                 <label for="data_fecha_nacimiento" class="login__user">
                     Fecha de nacimiento:
-                    <input type="date" id="data_fecha_nacimiento" name="fecha_nacimiento">
+                    <input type="date" id="data_fecha_nacimiento" name="fechaNacimiento">
                 </label>
                 <div class="buttons__down">
                     <div class="user_login">
@@ -40,7 +40,7 @@
                 </div>
             </form>
             <?php
-                require_once(__DIR__ . "../../process/create_mascota.php");
+                require_once(__DIR__ . "/../process/create_mascota.php");
             ?>
         </section>
     </main>
