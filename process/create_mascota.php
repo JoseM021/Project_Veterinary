@@ -1,53 +1,52 @@
 <?php
-function create_mascota($codigoError, $campo) {
-    $_POST["error"] = $codigoError;
-    $_POST["campo"] = $campo;
+session_start();
+require_once("../controller/user.controller.php");
+require_once("../controller/mascota.controller.php");
+require_once("../controller/raza.controller.php");
+require_once("../model/Raza.php");
 
-    header("Location: create_mascota.php");
-    exit();
-}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $nombre = $_POST["nombre"];
+  $tipoMascota_id = $_POST["TipoMascota_id"];
+  $raza_nombre = $_POST["raza"];
+  $fechaNacimiento = $_POST["fechaNacimiento"];
 
-$camposRequeridos = ["nombre", "fechaNacimiento", "TipoMascota_id", "Raza_id"];
-foreach ($camposRequeridos as $campo) {
-    if (!isset($_POST[$campo]) || empty($_POST[$campo])) {
-        exit("El campo '$campo' es obligatorio.");
-    }
+  $mascota = new Mascota();
+  $connection = new Conexion();
+  $razaController = new RazaController();
+  $mascotaController = new MascotaController();
 
-    if (empty($_POST[$campo])) {
-        exit("El valor del campo '$campo' debe estar relleno.");
-    }
-}
+  $mascota->nombre = $nombre;
+  $mascota->FechaNacimiento = $fechaNacimiento;
 
-$fechaNacimiento = DateTime::createFromFormat("d/m/Y", $_POST["fechaNacimiento"]);
-if (!$fechaNacimiento) {
-exit("Fecha de nacimiento inválida. Use el formato dd/mm/yyyy.");
-}
+  $raza_exists = $mascotaController->razaExistsNombre($raza_nombre);
 
-$mascota = new Mascota();
-$mascota->nombre = $_POST["nombre"];
-$mascota->FechaNacimiento = $fechaNacimiento;
-$mascota->User_id = $_POST["User_id"];
-$mascota->TipoMascota_id = intval($_POST["TipoMascota_id"]);
-$mascota->Raza_id = intval($_POST["Raza_id"]);
+  if (!$raza_exists) {
+    $nuevaRaza = new Raza();
+    $nuevaRaza->nombre = $raza_nombre;
+    $nuevaRaza->TipoMascota_id = $tipoMascota_id;
+    $razaController->create($nuevaRaza); 
+    $mascota->Raza_id = $nuevaRaza->id;
+  } else {
+    $raza_existente = $razaController->getRazaPorNombre($raza_nombre);
+    $mascota->Raza_id = $raza_existente->id;
+  }
 
-var_dump($_POST);
-var_dump($mascota);
+  $mascota->TipoMascota_id = $tipoMascota_id; 
 
-require_once __DIR__ . "../../model/Mascota.php";
+  if (!isset($_SESSION["User_id"])) {
+    header("Location: ../login.php");
+    exit;
+  } else {
+    $user_id = $_SESSION["User_id"];
+  }
 
-$mascotaController = new MascotaController();
-$result = $mascotaController->create($mascota);
+  // Creo la mascota
+  $mascota->User_id = $user_id;
 
-$result = [
-    "nombre" => $mascota->nombre,
-    "fechaNacimiento" => $mascota->FechaNacimiento,
-    "TipoMascota_id" => $mascota->TipoMascota_id,
-    "Raza_id" => $mascota->Raza_id,
-];
+  // Inserto la mascota en la bd
+  $mascotaController->create($mascota);
 
-if ($result) {
-header("Location: mascotaRegistered.php?mascota=" . json_encode($result));
-} else {
-echo "Error al crear la mascota.";
+  header("Location: mascotaIndex.php");
 }
 ?>

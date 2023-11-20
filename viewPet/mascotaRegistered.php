@@ -26,6 +26,7 @@
                     require_once(__DIR__ . "/../controller/mascota.controller.php");
                     require_once(__DIR__ . "/../controller/tipomascota.controller.php");
                     require_once(__DIR__ . "/../controller/raza.controller.php");
+                    require_once(__DIR__ . "/../controller/user.controller.php"); // Asegúrate de tener este archivo y clase
                     require_once(__DIR__ . "/../conexion.php");
 
                     $mascotaController = new MascotaController();
@@ -37,6 +38,8 @@
                     $razaController = new RazaController();
                     $razas = $razaController->read();
 
+                    $userController = new User_Controller();
+                    $users = $userController->read();
                 ?>
                 <?php foreach ($mascotas as $mascota): ?>
                     <?php
@@ -55,6 +58,13 @@
                                 break;
                             }
                         }
+                        $userName = "";
+                        foreach ($users as $user) {
+                            if ($mascota->User_id == $user->id) {
+                                $userName = $user->username;
+                                break;
+                            }
+                        }
                     ?>
                     <tr class="rowscontent__mascotas">
                         <th><?= $mascota->id ?></th>
@@ -62,7 +72,7 @@
                         <th><?= $tipoMascotaNombre ?></th>
                         <th><?= $razaNombre ?></th>
                         <th><?= $mascota->FechaNacimiento ?></th>
-                        <th><?= $mascota->User_id ?></th>
+                        <th><?= $userName ?></th>
                         <th class="buttonMascotaUpdate"><a href="updateMascota.php?id=<?= $mascota->id ?>">Editar</a></th>
                         <th class="buttonMascotaDelete"><a href="deleteMascota.php?id=<?= $mascota->id ?>">Eliminar</a></th>
                     </tr>

@@ -9,11 +9,18 @@
 </head>
 <body>
     <?php
+    session_start();
     use Dotenv\Dotenv;
     require_once __DIR__ . "/vendor/autoload.php";
 
     $dotenv = Dotenv::createImmutable(__DIR__);
     $dotenv->load();
+    
+    if (isset($_SESSION["User_id"])) {
+        echo "User ID: " . $_SESSION["User_id"];
+    } else {
+        echo "User ID no está establecido";
+    }
     ?>
     <header>
         <div class="header__logo">

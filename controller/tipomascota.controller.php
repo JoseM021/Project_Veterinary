@@ -37,7 +37,6 @@ class TipoMascotaController extends Conexion {
                 $tipoMascota = new TipoMascota();
                 $tipoMascota->id = $row["id"];
                 $tipoMascota->nombre = $row["nombre"];
-                $tipoMascota->EdadAdulto = $row["EdadAdulto"];
                 $tipoMascotas[] = $tipoMascota;
             }
         }

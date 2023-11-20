@@ -43,6 +43,23 @@ class RazaController extends Conexion {
     
         return $razas;
     }
+    public function getRazaPorNombre($raza_nombre) {
+        $connection = $this->connect();
+        $raza_nombre = $connection->real_escape_string($raza_nombre);
+        $sql = "SELECT * FROM raza WHERE nombre = '{$raza_nombre}'";
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $raza = new Raza();
+            $raza->id = $row["id"];
+            $raza->nombre = $row["nombre"];
+            $raza->TipoMascota_id = $row["TipoMascota_id"];
+            return $raza;
+        } else {
+            return null;
+        }
+    }
+    
     
 }
 ?>
