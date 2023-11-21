@@ -3,13 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Vaccine</title>
-</head>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/vaccineRegistered.css">
     <title>Vacunas Registradas</title>
 </head>
@@ -30,19 +23,25 @@
                     require_once(__DIR__ . "/../controller/vaccine.controller.php");
                     require_once(__DIR__ . "/../conexion.php");
                     $vaccineController = new VaccineController();
-                    $vaccines = $vaccineController->read();
+                    $vaccines = $vaccineController->read(); 
                 ?>
                 <?php foreach ($vaccines as $vaccine): ?>
                     <tr class="rowscontent__vaccines">
-                        <th><?= $vaccine->id ?></th>
-                        <th><?= $vaccine->nombre ?></th>
-                        <th class="buttonVacineUpdate"><a href="updateVaccine.php?id=<?= $vaccine->id ?>">Editar</a></th>
-                        <th class="buttonVacineDelete"><a href="deleteVaccine.php?id=<?= $vaccine->id ?>">Eliminar</a></th>
+                        <form action="/../process/update_vaccine.php" method="POST">
+                            <th><?= $vaccine->id ?><input type="hidden" name="id" value="<?= $vaccine->id ?>"></th>
+                            <th><input type="text" name="nombre" value="<?= $vaccine->nombre ?>"></th>
+                            <th class="buttonVacineUpdate"><input type="submit" value="Actualizar"></th>
+                        </form>
+                        <th class="buttonVacineDelete">
+                            <form action="/../process/delete_vaccine.php" method="POST">
+                                <input type="hidden" name="id" value="<?= $vaccine->id ?>">
+                                <input type="submit" value="Eliminar">
+                            </form>
+                        </th>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
     </section>
 </body>
-</html>
 </html>

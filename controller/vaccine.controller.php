@@ -40,7 +40,15 @@ class VaccineController extends Conexion {
             }
         }
         return $vacunas;
-    }    
+    }
+    public function isVaccineUsed($vacuna) {
+        $connection = $this->connect();
+        $id = $vacuna->id;
+        $query = $connection->query("SELECT COUNT(*) FROM controlvacuna WHERE Vacuna_id = $id");
+
+        return $query->fetch_array()[0] > 0;
+    }
+    
 }
 
 ?>

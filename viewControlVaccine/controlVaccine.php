@@ -7,7 +7,6 @@
 </head>
 <body>
 <?php
-var_dump($_POST);
 require_once("../controller/vaccine.controller.php");
 require_once("../conexion.php");
 

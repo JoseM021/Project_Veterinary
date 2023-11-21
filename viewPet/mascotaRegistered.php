@@ -40,6 +40,7 @@
 
                     $userController = new User_Controller();
                     $users = $userController->read();
+                    
                 ?>
                 <?php foreach ($mascotas as $mascota): ?>
                     <?php
@@ -67,14 +68,21 @@
                         }
                     ?>
                     <tr class="rowscontent__mascotas">
-                        <th><?= $mascota->id ?></th>
-                        <th><?= $mascota->nombre ?></th>
-                        <th><?= $tipoMascotaNombre ?></th>
-                        <th><?= $razaNombre ?></th>
-                        <th><?= $mascota->FechaNacimiento ?></th>
-                        <th><?= $userName ?></th>
-                        <th class="buttonMascotaUpdate"><a href="updateMascota.php?id=<?= $mascota->id ?>">Editar</a></th>
-                        <th class="buttonMascotaDelete"><a href="deleteMascota.php?id=<?= $mascota->id ?>">Eliminar</a></th>
+                        <form action="/../process/update_mascota.php" method="POST">
+                            <th><?= $mascota->id ?><input type="hidden" name="id" value="<?= $mascota->id ?>"></th>
+                            <th><input type="text" name="nombre" value="<?= $mascota->nombre ?>"></th>
+                            <th><input type="text" name="tipoMascotaNombre" value="<?= $tipoMascotaNombre ?>"></th>
+                            <th><input type="text" name="razaNombre" value="<?= $razaNombre ?>"></th>
+                            <th><input type="text" name="FechaNacimiento" value="<?= $mascota->FechaNacimiento ?>"></th>
+                            <th><?= $userName ?></th>
+                            <th class="buttonMascotaUpdate"><input type="submit" value="Actualizar"></th>
+                        </form>
+                        <th class="buttonMascotaDelete">
+                            <form action="/../process/delete_mascota.php" method="POST">
+                                <input type="hidden" name="id" value="<?= $mascota->id ?>">
+                                <input type="submit" value="Eliminar">
+                            </form>
+                        </th>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>

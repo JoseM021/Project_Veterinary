@@ -41,10 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_SESSION["User_id"];
   }
 
-  // Creo la mascota
   $mascota->User_id = $user_id;
 
-  // Inserto la mascota en la bd
   $mascotaController->create($mascota);
 
   header("Location: mascotaIndex.php");

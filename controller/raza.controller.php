@@ -58,8 +58,18 @@ class RazaController extends Conexion {
         } else {
             return null;
         }
-    }
+    } 
+    public function getIdByName($nombre) {
+        $connection = $this->connect();
+        $sql = "SELECT id FROM Raza WHERE nombre = '{$nombre}'";
+        $result = $connection->query($sql);
     
-    
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row["id"];
+        } else {
+            return null;
+        }
+    }    
 }
 ?>
