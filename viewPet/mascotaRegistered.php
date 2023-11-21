@@ -68,12 +68,12 @@
                         }
                     ?>
                     <tr class="rowscontent__mascotas">
-                        <form action="/../process/update_mascota.php" method="POST">
+                        <form action="../process/update_mascota.php" method="POST">
                             <th><?= $mascota->id ?><input type="hidden" name="id" value="<?= $mascota->id ?>"></th>
                             <th><input type="text" name="nombre" value="<?= $mascota->nombre ?>"></th>
-                            <th><input type="text" name="tipoMascotaNombre" value="<?= $tipoMascotaNombre ?>"></th>
-                            <th><input type="text" name="razaNombre" value="<?= $razaNombre ?>"></th>
-                            <th><input type="text" name="FechaNacimiento" value="<?= $mascota->FechaNacimiento ?>"></th>
+                            <th><input type="text" name="TipoMascota_id" readonly value="<?= $tipoMascotaNombre ?>"></th>
+                            <th><input type="text" name="raza" readonly value="<?= $razaNombre ?>"></th>
+                            <th><input type="text" name="fechaNacimiento" value="<?= $mascota->FechaNacimiento ?>"></th>
                             <th><?= $userName ?></th>
                             <th class="buttonMascotaUpdate"><input type="submit" value="Actualizar"></th>
                         </form>
