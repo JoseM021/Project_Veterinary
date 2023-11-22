@@ -15,7 +15,7 @@
                 <tr class="rowsHeaderMascotas">
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Tipo de mascota</th>
+                    <th>TipoMascota</th>
                     <th>Raza</th>
                     <th>Fecha de nacimiento</th>
                     <th>Dueño</th>
@@ -26,17 +26,17 @@
                     require_once(__DIR__ . "/../controller/mascota.controller.php");
                     require_once(__DIR__ . "/../controller/tipomascota.controller.php");
                     require_once(__DIR__ . "/../controller/raza.controller.php");
-                    require_once(__DIR__ . "/../controller/user.controller.php"); // Asegúrate de tener este archivo y clase
+                    require_once(__DIR__ . "/../controller/user.controller.php"); 
                     require_once(__DIR__ . "/../conexion.php");
 
                     $mascotaController = new MascotaController();
                     $mascotas = $mascotaController->read();
 
-                    $tipoMascotaController = new TipoMascotaController();
-                    $tipoMascotas = $tipoMascotaController->read();
-
                     $razaController = new RazaController();
                     $razas = $razaController->read();
+                    
+                    $tipoMascotaController = new TipoMascotaController();
+                    $tipoMascotas = $tipoMascotaController->read();
 
                     $userController = new User_Controller();
                     $users = $userController->read();
@@ -44,14 +44,6 @@
                 ?>
                 <?php foreach ($mascotas as $mascota): ?>
                     <?php
-                        $tipoMascotaNombre = "";
-                        foreach ($tipoMascotas as $tipoMascota) {
-                            if ($mascota->TipoMascota_id == $tipoMascota->id) {
-                                $tipoMascotaNombre = $tipoMascota->nombre;
-                                break;
-                            }
-                        }
-
                         $razaNombre = "";
                         foreach ($razas as $raza) {
                             if ($mascota->Raza_id == $raza->id) {
@@ -71,8 +63,16 @@
                         <form action="../process/update_mascota.php" method="POST">
                             <th><?= $mascota->id ?><input type="hidden" name="id" value="<?= $mascota->id ?>"></th>
                             <th><input type="text" name="nombre" value="<?= $mascota->nombre ?>"></th>
-                            <th><input type="text" name="TipoMascota_id" readonly value="<?= $tipoMascotaNombre ?>"></th>
-                            <th><input type="text" name="raza" readonly value="<?= $razaNombre ?>"></th>
+                            <th>
+                            <select name="TipoMascota_id">
+                                <?php foreach ($tipoMascotas as $tipoMascota): ?>
+                                    <option value="<?= $tipoMascota->id ?>" <?= $mascota->TipoMascota_id == $tipoMascota->id ? 'selected' : '' ?>>
+                                        <?= $tipoMascota->nombre ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                            </th>
+                            <th><input type="text" name="raza" value="<?= $razaNombre ?>"></th>
                             <th><input type="text" name="fechaNacimiento" value="<?= $mascota->FechaNacimiento ?>"></th>
                             <th><?= $userName ?></th>
                             <th class="buttonMascotaUpdate"><input type="submit" value="Actualizar"></th>

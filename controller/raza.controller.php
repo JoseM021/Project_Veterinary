@@ -1,5 +1,6 @@
 <?php
 require_once(__DIR__ ."/../conexion.php");
+require_once(__DIR__ ."/../model/Raza.php");
 require_once(__DIR__ ."/../model/Vacuna.php");
 
 class RazaController extends Conexion {
@@ -13,8 +14,8 @@ class RazaController extends Conexion {
     }
     public function update (Raza $raza) {
         $connection = $this->connect();
-        $sql= "UPDATE Raza SET nombre = '{$raza->nombre}', '{$raza->TipoMascota_id}'
-        WHERE id = {$raza->id}'";
+        $sql= "UPDATE Raza SET nombre = '{$raza->nombre}', TipoMascota_id = '{$raza->TipoMascota_id}' 
+        WHERE id = {$raza->id}";
         $result = $connection->query($sql);
         return $result;
     }

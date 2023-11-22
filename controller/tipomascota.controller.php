@@ -11,14 +11,14 @@ class TipoMascotaController extends Conexion {
         $result = $connection->query($sql);
         return $result;
     }
-    public function update (TipoMascota $tipoMascota) {
+    public function update(TipoMascota $tipoMascota) {
         $connection = $this->connect();
-        $sql = "UPDATE TipoMascota SET nombre = '{$tipoMascota->nombre}', '{$tipoMascota->EdadAdulto}'
-        WHERE id = {$tipoMascota->id}'";
-
+        $sql = "UPDATE TipoMascota SET nombre = '{$tipoMascota->nombre}'
+                WHERE id = {$tipoMascota->id}";
         $result = $connection->query($sql);
         return $result;
     }
+    
     public function delete (TipoMascota $tipoMascota) {
         $connection = $this->connect();
         $sql = "DELETE FROM TipoMascota WHERE id = '{$tipoMascota->id}'";

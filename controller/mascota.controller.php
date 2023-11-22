@@ -1,8 +1,10 @@
 <?php
 require_once(__DIR__ ."/../conexion.php");
 require_once(__DIR__ ."/../model/Mascota.php");
-require_once (__DIR__ ."/../process/create_mascota.php");
+require_once(__DIR__ ."/../model/Raza.php");
+
 class MascotaController extends Conexion {
+    public $raza;
     public function create(Mascota $mascota) {
         $connection = $this->connect();
         $sql = "INSERT INTO Mascota (nombre, FechaNacimiento, User_id, TipoMascota_id, Raza_id)
@@ -13,7 +15,7 @@ class MascotaController extends Conexion {
     }
     public function update (Mascota $mascota) {
         $connection = $this->connect();
-        $sql = "UPDATE Mascota SET nombre = '{$mascota->nombre}', '{$mascota->FechaNacimiento}', '{$mascota->foto}'
+        $sql = "UPDATE Mascota SET nombre = '{$mascota->nombre}', FechaNacimiento = '{$mascota->FechaNacimiento}'
         WHERE id = '{$mascota->id}'";
 
         $result = $connection->query($sql);
@@ -64,6 +66,28 @@ class MascotaController extends Conexion {
           return null;
         }
     }
+    public function getMascotaById($id) {
+        $connection = $this->connect();
+        $sql = "SELECT * FROM Mascota WHERE id = '{$id}'";
+    
+        $result = $connection->query($sql);
+    
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+    
+            $mascota = new Mascota();
+            $mascota->id = $row["id"];
+            $mascota->nombre = $row["nombre"];
+            $mascota->TipoMascota_id = $row["TipoMascota_id"];
+            $mascota->FechaNacimiento = $row["FechaNacimiento"];
+            $mascota->Raza_id = $row["Raza_id"];
+    
+            return $mascota;
+        } else {
+            return null;
+        }
+    }         
+
     public function razaExistsNombre($raza_nombre) {
         $connection = $this->connect();
         $raza_nombre = $connection->real_escape_string($raza_nombre);
