@@ -16,15 +16,15 @@
     $dotenv = Dotenv::createImmutable(__DIR__);
     $dotenv->load();
     
-    if (isset($_SESSION["User_id"])) {
+    /* if (isset($_SESSION["User_id"])) {
         echo "User ID: " . $_SESSION["User_id"];
     } else {
         echo "User ID no está establecido";
-    }
+    } */
     ?>
     <header>
         <div class="header__logo">
-            <h3>Logo</h3>
+            <img src="img/Logo_Veterinary_Alternative.png" alt="Logo-Veterinary">
         </div>
         <div class="rightContainerMain__buttons">
             <input type="checkbox" id="menu-toggle" class="menu-toggle">
