@@ -4,22 +4,28 @@
     box-sizing: border-box;
     font-family:Arial, Helvetica, sans-serif;
 }
+:root{
+    --header-height: 9vh;
+}
+body {
+    background-color: rgb(241 241 241);
+}
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background: rgb(17,44,57);
-    background: linear-gradient(90deg, rgba(17,44,57,1) 0%, rgba(18,65,71,1) 35%, rgba(16,58,73,1) 70%, rgba(13,55,64,1) 100%);
-    height: 8vh;
-    padding: 0 1vh;
+    justify-content: center;
+    background: rgb(24,158,209);
+    background: linear-gradient(90deg, rgba(24,158,209,1) 0%, rgba(66,178,191,1) 35%, rgba(23,170,200,1) 100%);
+    height: var(--header-height);
+    padding: 0vh 1vh;
+    gap: 10vh;
     position: fixed;
     z-index: 1;
     width: 100%;
-
 }
 header h3, header a, header label {
-    color: white;
-    font-weight: lighter;
+    color: black;
+    font-weight: 500;
     text-decoration: none;
     cursor: pointer;
 }
@@ -56,18 +62,43 @@ header h3, header a, header label {
 .main__buttons a:hover, .right__buttons a:hover {
     display: flex;
     justify-content: center;
-    background-color: rgb(107, 51, 229);
+    background: rgb(58,199,215);
+    background: linear-gradient(90deg, rgba(58,199,215,1) 0%, rgba(124,230,246,1) 0%, rgba(103,190,223,1) 0%, rgba(56,214,236,1) 0%, rgba(77,200,223,1) 53%, rgba(131,217,228,1) 100%);
     width: 15vh;
     text-align: center;
     align-items: center;
     color: black;
     font-weight: bolder;
-    padding: 2.5vh;
+    padding: 1.5vh;
     transition: 0.4s;
+    border-radius: 0.5vw;
+}
+.centralContainer {
+    padding-top: calc(var(--header-height) + 9vh) ;
+}
+.ContainerMain {
+    border: 1px solid;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    padding: 0vh 12vh;
+}
+.leftContainermain h2 {
+    font-size: 1.5vw;
+}
+.imgTitleContainer img {
+    height: 12vw;
+}
+.rightContainermain img {
+    height: 20vw;
 }
 .header__logo img {
     height: 5vw;
     width: 5vw;
+}
+.ContainerSubMain img {
+    height: 4vw;
+    width: 4vw;
 }
 @media (max-width: 670px) {
     .right__buttons {

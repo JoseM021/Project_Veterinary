@@ -11,7 +11,6 @@ require_once("../controller/vaccine.controller.php");
 require_once("../conexion.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Este bloque de código se ejecuta cuando se envía el formulario de registro de vacunas
     $mascota_id = $_POST['mascota'];
     $vacuna_id = $_POST['vacuna'];
     $fecha = $_POST['fecha'];

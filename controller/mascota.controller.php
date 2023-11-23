@@ -18,7 +18,6 @@ class MascotaController extends Conexion {
         $nombre = $connection->real_escape_string($mascota->nombre);  
         $sql = "UPDATE Mascota SET nombre = '{$nombre}', FechaNacimiento = '{$mascota->FechaNacimiento}' WHERE id = '{$mascota->id}'";    
         echo "SQL Query: $sql<br>";
-        
         $result = $connection->query($sql);
     
         if ($result === TRUE) {

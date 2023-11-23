@@ -37,21 +37,56 @@
     </header>
     <body>
         <main class="centralContainer">
-            <div class="containerUser">
-                <div class="userInformation-left">
-                    <div><img src="../Project_Veterinary/img/icon-user-default.png" alt="user-icon"></div>
-                    <p class="userName" name="UserName">Username</p>
+            <section class="ContainerMain">
+                <div class="leftContainermain">
+                    <div class="imgTitleContainer">
+                        <img src="img/Logo_Veterinary_Tittle.svg" alt="Logo Veterinary Tittle">
+                    </div>
+                    <h2>
+                        Respetar a los animales es una obligación, amarlos es un privilegio.
+                    </h2>
+                    <h4>
+                        Registrate acá para acceder a las diversas funciones para tu mascota.
+                    </h4>
+                    <a href="conexion.php">
+                        <button class="buttonRegisterDown">
+                            Registrate
+                        </button>
+                    </a>
                 </div>
-                <div class="userInformation-center">
-                    <p class="petsCount">Cantidad Mascotas:</p>
+                <div class="rightContainermain">
+                    <img src="img/pet-main-right.png" alt="pet-main-right">
                 </div>
-            </div>
-            <div class="containerMain">
-                
-            </div>
-            <div class="containerFooter">
-
-            </div>
+            </section>
+            <section class="ContainerSubMain">
+                <article class="article-one">
+                    <div><img src="img/registered-vaccine-veterinary.png" alt="registered-pet"></div>
+                    <p class="article-tittle">
+                        Registramos a tus mascotas
+                    </p>
+                    <p class="article-subtittle">
+                        Disponible para ti
+                    </p>
+                </article>
+                <article class="article-two">
+                    <div><img src="img/vaccine-veterinary.png" alt="vaccine-registered"></div>
+                    <p class="article-tittle">
+                        Registramos tus vacunas de mascotas
+                    </p>
+                    <p class="article-subtittle">
+                        Disponible para ti
+                    </p>
+                </article>
+                <article class="article-three">
+                    <div><img src="img/vaccineTWO-veterinary.png" alt="vaccine-pet"></div>
+                    <p class="article-tittle">
+                        Controlamos las vacunas de tu mascota
+                    </p>
+                    <p class="article-subtittle">
+                        Disponible para ti
+                    </p>
+                </article>
+            </section>
         </main>
     </body>
 
