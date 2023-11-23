@@ -12,13 +12,13 @@ class RazaController extends Conexion {
         $result = $connection->query($sql);
         return $result;
     }
-    public function update (Raza $raza) {
+    public function update(Raza $raza) {
         $connection = $this->connect();
-        $sql= "UPDATE Raza SET nombre = '{$raza->nombre}', TipoMascota_id = '{$raza->TipoMascota_id}' 
-        WHERE id = {$raza->id}";
+        $sql = "UPDATE Raza SET nombre = '{$raza->nombre}' WHERE id = {$raza->id}";
         $result = $connection->query($sql);
         return $result;
     }
+ 
     public function delete (Raza $raza) {
         $connection = $this->connect();
         $sql= "DELETE FROM Raza WHERE id = '{$raza->id}'";

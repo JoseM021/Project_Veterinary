@@ -64,15 +64,19 @@
                             <th><?= $mascota->id ?><input type="hidden" name="id" value="<?= $mascota->id ?>"></th>
                             <th><input type="text" name="nombre" value="<?= $mascota->nombre ?>"></th>
                             <th>
-                            <select name="TipoMascota_id">
-                                <?php foreach ($tipoMascotas as $tipoMascota): ?>
-                                    <option value="<?= $tipoMascota->id ?>" <?= $mascota->TipoMascota_id == $tipoMascota->id ? 'selected' : '' ?>>
-                                        <?= $tipoMascota->nombre ?>
-                                    </option>
-                                <?php endforeach; ?>
-                            </select>
+                                <select name="TipoMascota_id">
+                                    <?php foreach ($tipoMascotas as $tipoMascota): ?>
+                                        <option value="<?= $tipoMascota->id ?>" <?= $mascota->TipoMascota_id == $tipoMascota->id ? 'selected' : '' ?>>
+                                            <?= $tipoMascota->nombre ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <input type="hidden" name="tipoMascotaNombre" value="<?= $tipoMascota->nombre ?>">
                             </th>
-                            <th><input type="text" name="raza" value="<?= $razaNombre ?>"></th>
+                            <th>
+                                <input type="hidden" name="Raza_id" value="<?= $mascota->Raza_id ?>">
+                                <input type="text" name="raza" value="<?= $razaNombre ?>">
+                            </th>
                             <th><input type="text" name="fechaNacimiento" value="<?= $mascota->FechaNacimiento ?>"></th>
                             <th><?= $userName ?></th>
                             <th class="buttonMascotaUpdate"><input type="submit" value="Actualizar"></th>
