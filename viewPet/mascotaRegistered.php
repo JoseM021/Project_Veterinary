@@ -69,7 +69,7 @@
                                         <option value="<?= $tipoMascota->id ?>" <?= $mascota->TipoMascota_id == $tipoMascota->id ? 'selected' : '' ?>>
                                             <?= $tipoMascota->nombre ?>
                                         </option>
-                                    <?php endforeach; ?>
+                                    <?php endforeach;?>
                                 </select>
                                 <input type="hidden" name="tipoMascotaOriginal" value="<?= $mascota->TipoMascota_id ?>">
                             </th>

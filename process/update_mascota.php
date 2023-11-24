@@ -12,11 +12,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $raza_id = $_POST["Raza_id"];
     $fechaNacimiento = $_POST["fechaNacimiento"];
 
-    echo "ID: $id<br>";
+/*     echo "ID: $id<br>";
     echo "Nombre: $nombre<br>";
     echo "TipoMascota ID: $tipoMascota_id<br>";
     echo "Raza ID: $raza_id<br>";
-    echo "Fecha de Nacimiento: $fechaNacimiento<br>";
+    echo "Fecha de Nacimiento: $fechaNacimiento<br>"; */
 
     $mascotaController = new MascotaController();
     $mascota = new Mascota();

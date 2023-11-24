@@ -9,23 +9,24 @@
 </head>
 <body>
     <?php
-    session_start();
     use Dotenv\Dotenv;
     require_once __DIR__ . "/vendor/autoload.php";
 
     $dotenv = Dotenv::createImmutable(__DIR__);
     $dotenv->load();
-    
-    /* if (isset($_SESSION["User_id"])) {
+
+    session_start();
+    if (isset($_SESSION["User_id"])) {
         echo "User ID: " . $_SESSION["User_id"];
     } else {
         echo "User ID no está establecido";
-    } */
+    }
     ?>
     <header>
         <div class="header__logo">
             <img src="img/Logo_Veterinary_Alternative.png" alt="Logo-Veterinary">
         </div>
+        <?php if (!empty($_SESSION["username"])) {?>
         <div class="rightContainerMain__buttons">
             <input type="checkbox" id="menu-toggle" class="menu-toggle">
             <label for="menu-toggle" class="rightMore__button">More</label>
@@ -34,6 +35,13 @@
                 <a href="login.php">Ingresar</a>
             </div>
         </div>
+        <?php } else {?>
+            <div class="right__buttons">
+                <a href="">
+                    Cerrar Sesión
+                </a>
+            </div>
+        <?php }?>
     </header>
     <body>
         <main class="centralContainer">
@@ -89,7 +97,6 @@
             </section>
         </main>
     </body>
-
     <div class="welcome__message">
         <div class="welcome__icon">
             <img src="img/Logo_Veterinary_Alternative.png" alt="welcome-icon">

@@ -21,8 +21,9 @@ if (!empty ($_POST["userlogin"])) {
 
             if (password_verify($password, $passwordStored)) {
                 echo "La contraseña es válida";
-                $_SESSION["authenticated"] = 'true';
+                $_SESSION["authenticated"] = true;
                 $_SESSION["User_id"] = $user->id;
+                $_SESSION["username"] = $user->username;
                 header("location: index.php");
             } else {
                 echo "Contraseña Incorrecta";

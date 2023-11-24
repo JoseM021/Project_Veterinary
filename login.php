@@ -6,6 +6,14 @@
     <link rel="stylesheet" href="css/login.css">
     <title>Login</title>
 </head>
+<?php
+
+session_start();
+if(isset($_SESSION["User_id"])) {
+    header("Location: index.php");
+    exit;
+}
+?>
 <body>
     <main>
         <section class="login__main">

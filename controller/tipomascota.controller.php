@@ -59,7 +59,6 @@ class TipoMascotaController extends Conexion {
             }
         }
         return $tipoMascotas;
-
     }
     public function getIdByName($nombre) {
         $connection = $this->connect();
