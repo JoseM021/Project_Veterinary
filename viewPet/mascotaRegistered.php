@@ -71,7 +71,7 @@
                                         </option>
                                     <?php endforeach; ?>
                                 </select>
-                                <input type="hidden" name="tipoMascotaNombre" value="<?= $tipoMascota->nombre ?>">
+                                <input type="hidden" name="tipoMascotaOriginal" value="<?= $mascota->TipoMascota_id ?>">
                             </th>
                             <th>
                                 <input type="hidden" name="Raza_id" value="<?= $mascota->Raza_id ?>">

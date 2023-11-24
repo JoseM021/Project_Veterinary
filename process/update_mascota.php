@@ -11,7 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tipoMascota_id = $_POST["TipoMascota_id"];
     $raza_id = $_POST["Raza_id"];
     $fechaNacimiento = $_POST["fechaNacimiento"];
-    $tipoMascotaNombre = $_POST["tipoMascotaNombre"];
 
     echo "ID: $id<br>";
     echo "Nombre: $nombre<br>";
@@ -27,38 +26,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mascota->FechaNacimiento = $fechaNacimiento;
     $mascotaController->update($mascota);
 
-    // Actualizo TipoMascota en la BD
-    $tipoMascotaController = new TipoMascotaController();
-    $tipoMascota = $tipoMascotaController->getById($tipoMascota_id);
-
-    // Solo se actualiza el tipo de mascota si existe
-    if ($tipoMascota) {
-        // solo va a actualizar el nombre si este cambio
-        if ($tipoMascota->nombre !== $tipoMascotaNombre) {
-            // Imprimir información adicional para depuración
-            echo "TipoMascota original antes de la actualización: ";
-            print_r($tipoMascota);
-
-            $tipoMascotaController->update($tipoMascota->id, $tipoMascotaNombre);
-
-           //Actualiza el TipoMascota_id en la BD
-            $mascota->TipoMascota_id = $tipoMascota->id;
-            $mascotaController->update($mascota);
-
-            echo "TipoMascota después del update: ";
-            print_r($tipoMascota);
-            echo "Mascota después de la actualización: ";
-            print_r($mascota);
-        }
-    }
-
     $razaController = new RazaController();
-    $raza = new Raza();
-    $raza->id = $raza_id;
-    $raza->nombre = $_POST["raza"]; 
-    $razaController->update($raza);
+    $raza = $razaController->getById($raza_id);
 
-   /*  header("Location: ../viewPet/mascotaRegistered.php"); */
-   /*  exit(); */
+    if ($raza) {
+        $raza->nombre = $_POST["raza"];
+        $razaController->update($raza);
+    }    
+    header("Location: ../viewPet/mascotaRegistered.php");
+    exit();
 }
 ?>

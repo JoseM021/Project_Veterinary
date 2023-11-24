@@ -16,7 +16,7 @@ class MascotaController extends Conexion {
     public function update(Mascota $mascota) {
         $connection = $this->connect();
         $nombre = $connection->real_escape_string($mascota->nombre);  
-        $sql = "UPDATE Mascota SET nombre = '{$nombre}', FechaNacimiento = '{$mascota->FechaNacimiento}' WHERE id = '{$mascota->id}'";    
+        $sql = "UPDATE Mascota SET nombre = '{$nombre}', FechaNacimiento = '{$mascota->FechaNacimiento}', TipoMascota_id = '{$mascota->TipoMascota_id}' WHERE id = '{$mascota->id}'";    
         echo "SQL Query: $sql<br>";
         $result = $connection->query($sql);
     
@@ -27,6 +27,7 @@ class MascotaController extends Conexion {
         }
         return $result;
     }
+    
     
     public function delete (Mascota $mascota) {
         $connection = $this->connect();

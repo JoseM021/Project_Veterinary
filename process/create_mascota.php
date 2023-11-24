@@ -28,8 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $razaController->create($nuevaRaza); 
     $mascota->Raza_id = $nuevaRaza->id;
   } else {
-    $raza_existente = $razaController->getRazaPorNombre($raza_nombre);
-    $mascota->Raza_id = $raza_existente->id;
+    $nuevaRaza = new Raza();
+    $nuevaRaza->nombre = $raza_nombre;
+    $nuevaRaza->TipoMascota_id = $tipoMascota_id;
+    $razaController->create($nuevaRaza);
+    $mascota->Raza_id = $nuevaRaza->id;
   }
 
   $mascota->TipoMascota_id = $tipoMascota_id; 
