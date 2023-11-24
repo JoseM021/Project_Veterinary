@@ -6,13 +6,14 @@
 .welcome__message {
     width: 100%;
     height: 100%;
-    background: rgb(88, 23, 179);
-    background: linear-gradient(90deg, rgb(98, 93, 203) 0%, rgb(137, 78, 197) 0%, rgb(114, 84, 192) 35%, rgb(201, 75, 109) 100%);
+    background: rgb(28,131,147);
+    background: linear-gradient(124deg, rgba(28,131,147,1) 0%, rgba(39,114,166,1) 18%, rgba(52,146,186,1) 41%, rgba(67,176,200,1) 64%, rgba(47,130,180,1) 89%, rgba(23,133,155,1) 100%);
     background-size: 300% 100%;
-    background-clip: border-box; 
-    animation: gradient 6.5s ease;
+    background-clip: border-box;
+    animation: gradient 6.6s ease-in;
     position: absolute;
     z-index: 3;
+    top: 0;
 }
 
 .welcome__icon {

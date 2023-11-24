@@ -46,9 +46,9 @@
                         Respetar a los animales es una obligación, amarlos es un privilegio.
                     </h2>
                     <h4>
-                        Registrate acá para acceder a las diversas funciones para tu mascota.
+                        Accede a las diversas funciones para tu mascota.
                     </h4>
-                    <a href="conexion.php">
+                    <a href="register.php">
                         <button class="buttonRegisterDown">
                             Registrate
                         </button>
@@ -92,7 +92,7 @@
 
     <div class="welcome__message">
         <div class="welcome__icon">
-            <img src="img/Logo_Veterinary_Main.png" alt="welcome-icon">
+            <img src="img/Logo_Veterinary_Alternative.png" alt="welcome-icon">
         </div>
     </div>
     <script src="/javascript/loaderIndex.js"></script>
