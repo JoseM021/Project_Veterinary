@@ -46,6 +46,8 @@ header h3, header a, header label {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    gap: 4vh;
+    text-align: center;
 }
 .right__buttons a{
     display: flex;
@@ -157,6 +159,47 @@ h4 {
     font-weight: 600;
 }
 /* ----------Container submain styles end ----------- */
+
+
+/* -----------------------Styles with session start------------------------- */
+.centralContainer__Session {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: #49e8ff;
+}
+.article-tittle--Session {
+    color: black;
+}
+.ContainerMain_S {
+    color: #15d2f4;
+    display: flex;
+    justify-content: center;
+}
+.ContainerSubMain_S {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    padding: 0 40vh;
+    position: absolute;
+    top: 30vh;
+}
+.article-one--Session:hover {
+    background-color: #01d9ff;
+    font-weight: bold;
+}
+
+.ContainerSubMain--Session {
+    flex-basis: calc(33.33% - 2vh); 
+    margin-bottom: 2vh;
+    box-sizing: border-box;
+}
+
+.ContainerSubMain--Session a {
+    text-decoration: none;
+}
 @media (max-width: 670px) {
     .right__buttons {
         display: none;

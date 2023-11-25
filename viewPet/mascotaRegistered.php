@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/mascotaRegistered.css">
     <title>CRUD Mascotas</title>
 </head>
+<?php
+session_start();
+if(empty($_SESSION["User_id"])) {
+    header("Location: index.php");
+    exit;
+}
+?>
 <body>
     <section class="main__mascotas">
         <div class="mascotas__tittle">
@@ -92,7 +100,8 @@
                 </tbody>
         </table>
         <div class="mascotas__button">
-            <a href="createMascota.php" class="buttonAddMascota">Agregar mascota</a>
+            <a href="/viewPet/mascotaIndex.php" class="buttonAddMascota">Agregar mascota</a>
+            <a href="../index.php" class="buttonAddMascota">Inicio</a>
         </div>
     </section>
 </body>

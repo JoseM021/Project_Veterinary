@@ -64,6 +64,11 @@ if (isset($_POST["userregister"])) {
                         ¿Ya tienes una cuenta?<br>
                         Ingresa Aquí
                     </a>
+                    <div class="login__inicio">
+                        <a href="index.php">
+                            Inicio
+                        </a>
+                    </div>
                 </div>
             </article>
         </section>

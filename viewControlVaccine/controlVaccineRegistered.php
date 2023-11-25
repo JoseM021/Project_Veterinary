@@ -6,6 +6,13 @@
     <link rel="stylesheet" href="../css/vaccineRegistered.css">
     <title>Vacunas Registradas</title>
 </head>
+<?php
+session_start();
+if(empty($_SESSION["User_id"])) {
+    header("Location: login.php");
+    exit;
+}
+?>
 <body>
     <section class="main__vaccines">
         <div class="vaccines__tittle">
@@ -84,6 +91,10 @@
                 ?>
             </tbody>
         </table>
+        <div class="vaccinesDown__buttons">
+            <a href="/viewControlVaccine/controlVaccine.php">Agregar Vacuna</a>
+            <a href="../index.php">Inicio</a>
+        </div>
     </section>
 </body>
 </html>

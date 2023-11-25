@@ -1,8 +1,7 @@
 <?php
-session_start();
 if (!isset($_SESSION["error_message_form"]) && !isset($_SESSION["error_message_duplicate"]) && !empty($_POST["userregister"])) {
     if (empty($_POST["username"]) or empty($_POST["password"]) or empty($_POST["email"])) {
-        $_SESSION["error_message_form"] = "<div>Todos los campos son obligatorios</div>";
+        $_SESSION["error_message_form"] = "<div class='campos-vacios'>Todos los campos son obligatorios</div>";
     }
     else {
         $userController = new User_Controller();
@@ -23,15 +22,15 @@ if (!isset($_SESSION["error_message_form"]) && !isset($_SESSION["error_message_d
 
 
         if ($resultCheckDuplicate->num_rows > 0) {
-            $_SESSION["error_message_duplicate"] = "Usuario ya existente";
+            $_SESSION["error_message_duplicate"] = "<div class='campos-vacios'>Usuario ya existente</div>";
         } else {
             $status = $userController->create($user);
             if ($status) {
-                $_SESSION["succes_message"] = "Usuario creado exitosamente";
+                $_SESSION["succes_message"] = "<div class='campos-vacios'>Usuario creado exitosamente</div>";
                 header("Location:login.php");
                 exit;
             } else {
-                $_SESSION["error_message_create"] = "Error al crear el usuario";
+                $_SESSION["error_message_create"] = "<div class='campos-vacios'>Error al crear el usuario</div>";
             }
         }
         $connection->close();

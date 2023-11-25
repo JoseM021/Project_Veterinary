@@ -1,0 +1,75 @@
+body {
+    background-color: #252525;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.main__vacunas {
+    width: 40%;
+    background-color: #3ec9c9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.vacunas__title h2 {
+    color: #252525;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+label {
+    margin-top: 10px;
+    color: #252525;
+}
+
+select,
+input[type="date"],
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    background-color: #252525; 
+    color: #24919d;
+    border: none;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+    background-color: #252525;
+    color: #1e8282;
+}
+
+input[type="submit"]:hover {
+    background-color: #262a2a;
+}
+
+.down__buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.down__buttons a {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: rgb(25, 25, 25);
+    background-color: #3ec9c9;
+    border-radius: 5px;
+}
+
+.down__buttons a:hover {
+    background-color: #1e8282;
+}

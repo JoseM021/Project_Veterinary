@@ -6,6 +6,13 @@
     <link rel="stylesheet" href="../css/vaccineIndex.css">
     <title>Registro Vacuna</title>
 </head>
+<?php
+session_start();
+if(empty($_SESSION["User_id"])) {
+    header("Location: ../index.php");
+    exit;
+}
+?>
 <body>
     <main>
         <section class="login__main">

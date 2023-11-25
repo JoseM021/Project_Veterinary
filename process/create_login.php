@@ -1,23 +1,20 @@
 <?php
-session_start();
 require_once (__DIR__ ."/../conexion.php");
 $connection = new Conexion();
 $mysqli = $connection->connect();
 
 if (!empty ($_POST["userlogin"])) {
     if (empty($_POST["username"]) or empty($_POST["password"])) {
-        echo"Los campos están vacios";
+        echo '<div class="campos-vacios">Los campos están vacios</div>';
     } else {
         $username = mysqli_real_escape_string($mysqli, $_POST["username"]);
         $password = trim($_POST["password"]);
 
-        $result = $mysqli->query("SELECT id, password FROM User WHERE username='$username'");
+        $result = $mysqli->query("SELECT id, username, password FROM User WHERE username='$username'");
 
         if ($result->num_rows > 0) {
             $user = $result->fetch_object();
             $passwordStored = $user->password;
-            echo "Contraseña proporcionada: " . $password . "<br>";
-            echo "Contraseña almacenada: " . $passwordStored . "<br>";
 
             if (password_verify($password, $passwordStored)) {
                 echo "La contraseña es válida";
@@ -26,10 +23,10 @@ if (!empty ($_POST["userlogin"])) {
                 $_SESSION["username"] = $user->username;
                 header("location: index.php");
             } else {
-                echo "Contraseña Incorrecta";
+                echo "<div class='campos-vacios'>Contraseña Incorrecta</div>";
             }
         } else {
-            echo "Usuario no encontrado :(";
+            echo "<div class='campos-vacios'>Usuario no encontrado :(</div>";
         }
     }
 }

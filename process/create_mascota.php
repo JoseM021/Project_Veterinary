@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once("../controller/user.controller.php");
 require_once("../controller/mascota.controller.php");
 require_once("../controller/raza.controller.php");

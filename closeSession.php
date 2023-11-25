@@ -1,8 +1,7 @@
 <?php
 session_start();
-if (isset($_POST["closeSession"])) {
-    session_destroy();
-    header('Location: login.php');
-    exit;
-}
+$_SESSION["User_id"] = "";
+session_destroy();
+header("Location: index.php");
+exit;
 ?>

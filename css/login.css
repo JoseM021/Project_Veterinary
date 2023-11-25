@@ -14,7 +14,7 @@ body {
     display: grid;
     justify-items: center;
     border: 1px solid rgba(0, 0, 0, 0.081);
-    box-shadow: 0px 0px 0.6vw 0.6vw rgb(25 3 45 / 78%);
+    box-shadow: 0px 0px 0.6vw 0.6vw rgba(8, 111, 123, 0.352);
     padding: 9.5vh 15vh;
     /* background-color: #6d5ab4; */
     backdrop-filter: blur(0.1vw) opacity(0.7) grayscale(1) contrast(1.1);
@@ -28,22 +28,32 @@ body {
     display: flex;
     justify-content: center;
 }
+.campos-vacios {
+    color: #00eaff;
+    padding-top: 0.8vw;
+}
+.login__inicio {
+    padding-top: 0.6vw;
+}
+.login__inicio a {
+    background-color: #1e2627;
+    border-radius: 2vw;
+    font-size: 4vw;
+}
 /* Diseño de los elementos */
 body {
     background: url("../img/veterinary_fund_main.svg") no-repeat center;
     background-size: 123%;
 }
-
-
 h1 {
     font-size: 2.5vw;
     padding-bottom: 5vh;
-    color: #7a5de1;
+    color: #00eaff;
     filter: drop-shadow(0px 0px 5px rgb(0, 0, 0));
 }
 label {
     font-size: 0.9vw;
-    color: #7a5de1;
+    color: #00eaff;
     padding-bottom: 3vh;
 }
 label p {
@@ -62,14 +72,14 @@ label input[type="text"] {
     border: none;
     text-align: center;
     outline: none;
-    color: #805ff8;
+    color: #00eaff;
 }
 label input[type="password"] {
     background-color: #232323;
     border: none;
     text-align: center;
     outline: none;
-    color: #805ff8;
+    color: #00eaff;
 }
 .user_login input{
     font-weight: bolder;
@@ -79,7 +89,7 @@ label input[type="password"] {
     border: none;
     border-radius: 0.7vw;
     cursor: pointer;
-    background-color: #7a5de1;
+    background-color: #00eaff;
 }
 .login__footer {
     display: grid;
@@ -90,7 +100,7 @@ label input[type="password"] {
 .login__footer a {
     font-size: 0.8vw;
     text-decoration: none;
-    color: #7a5de1;
+    color: #00eaff;
 }
 .login-button::before {
     color: #acd4f7;

@@ -6,6 +6,13 @@
   <link rel="stylesheet" href="../css/mascotaIndex.css">
   <title>Registro Mascota</title>
 </head>
+<?php
+session_start();
+if(empty($_SESSION["User_id"])) {
+    header("Location: index.php");
+    exit;
+}
+?>
 <body>
   <?php
     require_once(__DIR__ . "/../process/create_mascota.php");
@@ -13,7 +20,7 @@
   <main>
     <section class="login__main">
       <h1>Registrar Mascota</h1>
-      <form action="mascotaIndex.php" method="POST">
+      <form action="mascotaIndex.php" method="POST" class="container-main">
         <label for="nombre" class="login__user">
           Nombre Mascota:
           <input type="text" id="nombre" name="nombre" value="" maxlength="20">
@@ -39,6 +46,9 @@
           </div>
           <div class="user_mascotas">
             <a name="submitmascota" href="mascotaRegistered.php">Ver Mascotas</a>
+          </div>
+          <div class="user_index">
+            <a href="../index.php">Inicio</a>
           </div>
         </div>
       </form>

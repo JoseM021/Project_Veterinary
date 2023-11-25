@@ -7,7 +7,6 @@
     <title>Login</title>
 </head>
 <?php
-
 session_start();
 if(isset($_SESSION["User_id"])) {
     header("Location: index.php");
@@ -39,6 +38,11 @@ if(isset($_SESSION["User_id"])) {
                     <a href="register.php">
                         ¿No tienes una cuenta?<br>
                         Registrate aquí
+                    </a>
+                </div>
+                <div class="login__inicio">
+                    <a href="index.php">
+                        Inicio
                     </a>
                 </div>
             </article>
